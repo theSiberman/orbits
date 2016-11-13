@@ -1,0 +1,35 @@
+<section>
+  <div class="page-header">
+    <h1 ng-bind="vm.orbit.name"></h1>
+    <label>Apogee</label><p ng-bind="vm.orbit.apogee"></p>
+    <label>Perigee</label><p ng-bind="vm.orbit.perigee"></p>
+    <label>Right Ascension of the Ascending Node</label><p ng-bind="vm.orbit.raan"></p>
+    <label>Semi Major Axis</label><p ng-bind="vm.orbit.semiMajorAxis"></p>
+    <label>Eccentricity</label><p ng-bind="vm.orbit.eccentricity"></p>
+    <label>Inclination</label><p ng-bind="vm.orbit.inclination"></p>
+    <label>@Context</label>
+    <p>{{vm.orbit['@context'] | json}}</p>
+
+  </div>
+  <div class="pull-right"
+       ng-show="vm.orbit.isCurrentUserOwner">
+    <a class="btn btn-primary"
+       ui-sref="orbits.edit({ orbitId: vm.orbit._id })">
+      <i class="glyphicon glyphicon-edit"></i>
+    </a>
+    <a class="btn btn-primary" ng-click="vm.remove()">
+      <i class="glyphicon glyphicon-trash"></i>
+    </a>
+  </div>
+  <small>
+    <em class="text-muted">
+      Posted on
+      <span ng-bind="vm.orbit.created | date:'mediumDate'"></span>
+      by
+      <span ng-if="vm.orbit.user"
+            ng-bind="vm.orbit.user.displayName"></span>
+      <span ng-if="!vm.orbit.user">Deleted User</span>
+    </em>
+  </small>
+  <p class="lead" ng-bind="vm.orbit.content"></p>
+</section>

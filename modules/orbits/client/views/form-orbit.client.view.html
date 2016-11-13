@@ -1,0 +1,48 @@
+<section>
+  <div class="page-header">
+    <h1>{{vm.orbit._id ? 'Edit Orbit' : 'New Orbit'}}</h1>
+  </div>
+  <div class="col-md-12">
+    <form name="vm.form.orbitForm" class="form-horizontal" ng-submit="vm.save(vm.form.orbitForm.$valid)" novalidate>
+      <fieldset>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="name">Name</label>
+          <input name="name" type="text" ng-model="vm.orbit.name" id="name" class="form-control" placeholder="Name" required>
+          <div ng-messages="vm.form.orbitForm.name.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Orbit name is required.</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="name">Apogee</label>
+          <input name="apogee" type="text" ng-model="vm.orbit.apogee" id="apogee" class="form-control" placeholder="Apogee">
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="name">Perigee</label>
+          <input name="perigee" type="text" ng-model="vm.orbit.perigee" id="perigee" class="form-control" placeholder="Perigee">
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="name">Right Ascension of the Ascending Node</label>
+          <input name="raan" type="text" ng-model="vm.orbit.raan" id="raan" class="form-control" placeholder="Right Ascension of the Ascending Node">
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="name">Semi Major Axis</label>
+          <input name="semiMajorAxis" type="text" ng-model="vm.orbit.semiMajorAxis" id="semiMajorAxis" class="form-control" placeholder="Semi Major Axis">
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="name">Eccentricity</label>
+          <input name="eccentricity" type="text" ng-model="vm.orbit.eccentricity" id="eccentricity" class="form-control" placeholder="Eccentricity">
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="name">Inclination</label>
+          <input name="inclination" type="text" ng-model="vm.orbit.inclination" id="inclination" class="form-control" placeholder="Inclination">
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-default">{{vm.orbit._id ? 'Update' : 'Create'}}</button>
+        </div>
+        <div ng-show="vm.error" class="text-danger">
+          <strong ng-bind="vm.error"></strong>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</section>
